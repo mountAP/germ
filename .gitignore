@@ -1,0 +1,23 @@
+**/.vscode
+**/node_modules
+
+# React
+testing/react-first-app/.pnp
+testing/react-first-app/.pnp.js
+
+# testing
+testing/react-first-app/coverage
+
+# production
+testing/react-first-app/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+testing/react-first-app/npm-debug.log*
+testing/react-first-app/yarn-debug.log*
+testing/react-first-app/yarn-error.log*
