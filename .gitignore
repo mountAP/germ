@@ -1,7 +1,8 @@
 **/.vscode
 **/node_modules
 
-# React
+# --------- React -----------------
+
 testing/react-first-app/.pnp
 testing/react-first-app/.pnp.js
 
@@ -12,12 +13,22 @@ testing/react-first-app/coverage
 testing/react-first-app/build
 
 # misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+testing/react-first-app/.DS_Store
+testing/react-first-app/.env.local
+testing/react-first-app/.env.development.local
+testing/react-first-app/.env.test.local
+testing/react-first-app/.env.production.local
 
 testing/react-first-app/npm-debug.log*
 testing/react-first-app/yarn-debug.log*
 testing/react-first-app/yarn-error.log*
+
+
+# ---------- Next ----------------------
+
+tesing/next-first-app/.next/
+tesing/next-first-app/node_modules/
+tesing/next-first-app/npm-debug.log
+tesing/next-first-app/.env
+tesing/next-first-app/.DS_Store
+tesing/next-first-app/.env.production
