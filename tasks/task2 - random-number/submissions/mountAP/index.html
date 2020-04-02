@@ -64,7 +64,7 @@
             width: 20vw;
             text-align: center;
             font-size: 3vw;
-            color: ;
+            color: red;
         }
 
         button {
@@ -114,20 +114,20 @@
             update(field_m.value, field_n.value, field_gen);
         }
 
+        /** 
+          * produce a random number and update the 
+          * generated field(field_gen) using values m and n  
+        */
         function update(m, n, field_gen) {
-            console.log(m, n);
             if (m && n && isNumeric(m) && isNumeric(n)) {
                 m = parseInt(m);
                 n = parseInt(n);
                 let r = randomNumber(Math.min(m, n), Math.max(m, n))
                 field_gen.innerHTML = r.toString();
-                // console.log(r);
             } else {
-                console.log('didnt work');
                 field_gen.innerHTML = "_"
             }
         }
-
 
     </script>
 </body>
