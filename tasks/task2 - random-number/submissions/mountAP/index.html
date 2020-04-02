@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Random Number</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arbutus Slab">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ahbigyan Prakash">
+</head>
+
+<body>
+    <div id="container">
+        <h1>Generate a random number</h1>
+        <table cellspacing="15">
+            <tr>
+                <td><label for="num_m">Value of m : </label></td>
+                <td><input type="text" name="m" id="num_m"></td>
+            </tr>
+            <tr>
+                <td><label for="num_n">Value of n : </label></td>
+                <td><input type="text" name="n" id="num_n"></td>
+            </tr>
+            <tr>
+                <td><button id="generate">Generate</button>ed</td>
+                <td id="generated">_</td>
+            </tr>
+        </table>
+    </div>
+
+    <style>
+        body {
+            color: white;
+            background-color: #26ae60;
+            font-family: Arbutus Slab;
+        }
+
+        h1 {
+            font-size: 5vw;
+        }
+
+        #container {
+            padding: 50px;
+            margin: auto;
+            margin-top: 5vw;
+            margin-bottom: 5vw;
+            width: fit-content;
+            max-width: 700%;
+            border-radius: 5px;
+            border-style: solid;
+        }
+
+        table {
+            margin: auto;
+            width: fit-content;
+            text-align: center;
+            font-size: 4vw;
+        }
+
+        input {
+            border: none;
+            border-radius: 5px;
+            height: 5vw;
+            width: 20vw;
+            text-align: center;
+            font-size: 3vw;
+            color: ;
+        }
+
+        button {
+            height: 6vw;
+            width: fit-content;
+            font-size: 4vw;
+            color: white;
+            background-color: #26ae60;
+            border-radius: 5px;
+            border-color: white;
+            margin: 1px;
+            border-width: 1px;
+
+        }
+
+        #generated {
+            font-size: 8vw;
+            color: #fed330;
+        }
+    </style>
+
+    <script>
+
+        function isNumeric(num) {
+            return !isNaN(num);
+        }
+
+        function randomNumber(lower = 0, upper = 1) {
+            return lower + Math.floor(Math.random() * (upper - lower + 1))
+        }
+
+        let field_m = document.getElementById("num_m");
+        let field_n = document.getElementById('num_n');
+        let field_gen = document.getElementById('generated');
+        let generateBtn = document.getElementById('generate');
+
+
+        field_m.oninput = function () {
+            update(field_m.value, field_n.value, field_gen);
+        }
+
+        field_n.oninput = function () {
+            update(field_m.value, field_n.value, field_gen);
+        }
+
+        generateBtn.onclick = function () {
+            update(field_m.value, field_n.value, field_gen);
+        }
+
+        function update(m, n, field_gen) {
+            console.log(m, n);
+            if (m && n && isNumeric(m) && isNumeric(n)) {
+                m = parseInt(m);
+                n = parseInt(n);
+                let r = randomNumber(Math.min(m, n), Math.max(m, n))
+                field_gen.innerHTML = r.toString();
+                // console.log(r);
+            } else {
+                console.log('didnt work');
+                field_gen.innerHTML = "_"
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
