@@ -12,15 +12,19 @@ int main(int argc, char const *argv[])
 
         printf("enter value of a b: \n");
         scanf("%d %d", &a, &b);
-        x = a % b;  //x will store the remainder of a/b.
+        //x will store the remainder of a/b.
+        x = a % b;  
         if (x == 0) 
         {
-            printf("%d\n", x);//if the remainder is zero it means a is divisible by b so the minimum move is zero.
+            //if the remainder is zero it means a is divisible by b so the minimum move is zero.
+            printf("%d\n", x);
         }
         else
         {
-            printf("%d\n ", b - x); //if remainder is >0 then the difference of its remainder and "b" will give 
-        }                //the minimum no. of moves because if the difference is added to "a" it will be divisible by "b".
+             //if remainder is >0 then the difference of its remainder and "b" will give 
+             //the minimum no. of moves because if the difference is added to "a" it will be divisible by "b".
+            printf("%d\n ", b - x);
+        }  
     }
 
     return 0;
