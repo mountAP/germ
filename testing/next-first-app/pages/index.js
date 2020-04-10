@@ -1,26 +1,20 @@
 // import Link from 'next/link';
 // import Header from '../components/Header';
 import Layout from '../components/MyLayout';
+import RequestCard from '../components/RequestCard';
+import { RequestsPanel } from '../components/RequestsPanel';
+import AddCard from '../components/AddCard';
 
 export default function Index() {
     return (
         <div>
-
-            {/* client side navigation */}
-            {/* 1.
-             <Link href="/about" title="About Page">
-                <a>About Page</a>
-            </Link> */
-            }
-
-            {/* 2  
-            <Header />  */
-            }
-
-            <Layout>
-                <p>Hello Next.js</p>
-            </Layout>
-
+            <Layout></Layout>
+            <RequestsPanel>
+                <AddCard></AddCard>
+                <RequestCard></RequestCard>
+                <RequestCard></RequestCard>
+                <RequestCard></RequestCard>
+            </RequestsPanel>
         </div>
     );
 }

@@ -3,11 +3,11 @@
 ### To be learnt
 
 - [x] Git
-- [ ] HTML, CSS
+- [x] HTML, CSS
 - [ ] Vanilla JavaScript with OOP
 - [ ] Reactjs
 - [ ] Express.js (node.js)
 - [ ] NextJS
 - [ ] Client Side Routing
 - [ ] APIs
-
+- [ ] MongoDB (NoSQL database)

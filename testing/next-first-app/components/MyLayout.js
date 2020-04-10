@@ -1,14 +1,9 @@
 import Header from './Header';
-
-const layoutStyle = {
-    margin: 20,
-    padding: 20,
-    border: '1px solid #DDD'
-};
+import styles from './MyLayout.module.css'
 
 export default function Layout(props) {
     return (
-        <div style={layoutStyle}>
+        <div className={styles.navBar}>
             <Header />
             {props.children}
         </div>

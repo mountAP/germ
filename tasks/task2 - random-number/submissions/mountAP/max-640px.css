@@ -1,0 +1,80 @@
+body {
+    color: white;
+    background-color: #26ae60;
+    font-family: Arbutus Slab;
+}
+
+h1 {
+    font-size: 9vw;
+    text-align: center;
+}
+
+h2 {
+    font-size: 6.5vw;
+    text-align: center;
+}
+
+#container {
+    /* padding-left: 10vw; */
+    /* padding-right: 10vw; */
+    padding-top: 1vw;
+    /* padding-bottom: 5vw; */
+    /* margin: auto; */
+    width: 100%;
+    /* margin-top: 2vw; */
+    /* max-width: 70%; */
+    border-radius: 5px;
+    /* border-style: solid; */
+}
+
+table {
+    margin: auto;
+    width: fit-content;
+    text-align: center;
+    font-size: 5.5vw;
+    font-weight: 600;
+}
+
+input {
+    border: none;
+    border-radius: 2px;
+    height: 10vw;
+    width: 40vw;
+    text-align: center;
+    font-size: 5.5vw;
+    color: red;
+}
+
+button {
+    height: 15vw;
+    width: fit-content;
+    font-size: 5.5vw;
+    font-weight: bold;
+    color: white;
+    background-color: #26ae61;
+    border-radius: 5px;
+    border-color: white;
+    border-style: solid;
+    margin: 1px;
+    border-width: 1px;
+    margin-top: 3vw;
+}
+
+button:hover {
+    background-color: #ffffff50;
+}
+
+button:active {
+    background-color: #ffffff50;
+}
+
+button:focus {
+    outline: none;
+}
+
+#generated {
+    font-size: 15vw;
+    color: #fed330;
+    max-width: 8vw;
+    overflow-x: auto;
+}

@@ -1,0 +1,61 @@
+body {
+    color: white;
+    background-color: #26ae60;
+    font-family: Arbutus Slab;
+}
+
+h1 {
+    font-size: 4.95vw;
+}
+
+#container {
+    padding-left: 10vw;
+    padding-right: 10vw;
+    padding-top: 2vw;
+    padding-bottom: 5vw;
+    margin: auto;
+    height: 70vh;
+    margin-top: 8vh;
+    margin-bottom: 5vh;
+    width: fit-content;
+    max-width: 70%;
+    border-radius: 5px;
+    border-style: solid;
+}
+
+table {
+    margin: auto;
+    width: fit-content;
+    text-align: center;
+    font-size: 4vw;
+}
+
+input {
+    border: none;
+    border-radius: 5px;
+    height: 5vw;
+    width: 20vw;
+    text-align: center;
+    font-size: 3vw;
+    color: red;
+}
+
+button {
+    height: 6vw;
+    width: fit-content;
+    font-size: 4vw;
+    color: white;
+    background-color: #26ae60;
+    border-radius: 5px;
+    border-color: white;
+    margin: 1px;
+    border-width: 1px;
+
+}
+
+#generated {
+    font-size: 8vw;
+    color: #fed330;
+    max-width: 8vw;
+    overflow-x: auto;
+}

@@ -1,0 +1,19 @@
+.requestsPanel {
+    width: 30vh;
+    height: 100vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 3.5vh;
+
+    /* position: relative; */
+    /* top: 0; */
+    /* left: 0; */
+
+    /* transform: rotate(-90deg); */
+    transform-origin: right top;
+    transform: rotate(-90deg) translateY(-34vh);
+}
+
+.requestsPanel::-webkit-scrollbar {
+    display: none;
+}

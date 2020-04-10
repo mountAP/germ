@@ -1,0 +1,9 @@
+.navItem {
+    margin: 0vw 5vw;
+    text-decoration: none;
+    /* display: block; */
+    font-size: 3vh;
+    font-family: Consolas;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}

@@ -3,16 +3,24 @@
 
 <head>
     <title>Random Number</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arbutus Slab">
+    <meta name="author" content="Abhigyan Prakash">
+    <meta name="theme-color" content="#26ae60">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Ahbigyan Prakash">
-    <meta name="theme-color" content="#26ae60">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arbutus Slab">
+    
+    <link rel="stylesheet" media="(max-width: 640px)" href="max-640px.css">
+    <link rel="stylesheet" media="(min-width: 640px)" href="min-640px.css">
+    <link rel="stylesheet" media="(orientation: portrait)" href="portrait.css">
+    <link rel="stylesheet" media="(orientation: landscape)" href="landscape.css">
 </head>
 
 <body>
     <div id="container">
         <h1>Generate a random number</h1>
+        <h2>between m and n</h2>
         <table cellspacing="15">
             <tr>
                 <td><label for="num_m">Value of m : </label></td>
@@ -22,120 +30,14 @@
                 <td><label for="num_n">Value of n : </label></td>
                 <td><input type="text" name="n" id="num_n"></td>
             </tr>
-            <tr>
-                <td><button id="generate">Generate</button>ed</td>
+            <tr id="gen">
+                <td><button id="generate">Generate</button></td>
                 <td id="generated">_</td>
             </tr>
         </table>
     </div>
 
-    <style>
-        body {
-            color: white;
-            background-color: #26ae60;
-            font-family: Arbutus Slab;
-        }
-
-        h1 {
-            font-size: 4.95vw;
-        }
-
-        #container {
-            padding-left: 10vw;
-            padding-right: 10vw;
-            padding-top: 2vw;
-            padding-bottom: 5vw;
-            margin: auto;
-            margin-top: 5vw;
-            margin-bottom: 3vw;
-            width: fit-content;
-            max-width: 70%;
-            border-radius: 5px;
-            border-style: solid;
-        }
-
-        table {
-            margin: auto;
-            width: fit-content;
-            text-align: center;
-            font-size: 4vw;
-        }
-
-        input {
-            border: none;
-            border-radius: 5px;
-            height: 5vw;
-            width: 20vw;
-            text-align: center;
-            font-size: 3vw;
-            color: red;
-        }
-
-        button {
-            height: 6vw;
-            width: fit-content;
-            font-size: 4vw;
-            color: white;
-            background-color: #26ae60;
-            border-radius: 5px;
-            border-color: white;
-            margin: 1px;
-            border-width: 1px;
-
-        }
-
-        #generated {
-            font-size: 8vw;
-            color: #fed330;
-            max-width: 8vw;
-            overflow-x:auto;
-        }
-    </style>
-
-    <script>
-
-        function isNumeric(num) {
-            return !isNaN(num);
-        }
-
-        function randomNumber(lower = 0, upper = 1) {
-            return lower + Math.floor(Math.random() * (upper - lower + 1))
-        }
-
-        let field_m = document.getElementById("num_m");
-        let field_n = document.getElementById('num_n');
-        let field_gen = document.getElementById('generated');
-        let generateBtn = document.getElementById('generate');
-
-
-        field_m.oninput = function () {
-            update(field_m.value, field_n.value, field_gen);
-        }
-
-        field_n.oninput = function () {
-            update(field_m.value, field_n.value, field_gen);
-        }
-
-        generateBtn.onclick = function () {
-            update(field_m.value, field_n.value, field_gen);
-        }
-
-        /** 
-          * produce a random number and update the 
-          * generated field(field_gen) using values m and n  
-        */
-        function update(m, n, field_gen) {
-            if (m && n && isNumeric(m) && isNumeric(n)) {
-                m = parseInt(m);
-                n = parseInt(n);
-                let r = randomNumber(Math.min(m, n), Math.max(m, n))
-                field_gen.innerHTML = r.toString();
-            } else {
-                field_gen.innerHTML = "_"
-            }
-        }
-
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
