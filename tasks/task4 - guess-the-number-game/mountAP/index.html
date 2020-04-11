@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess-it!</title>
+
+    <style>
+        .container {
+            margin-top: 10vh;
+        }
+
+        #status {
+            text-align: center;
+            margin: 0px auto;
+            width: 300px;
+            padding: 2vh;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+    <div class="container">
+            <h1>Guess the number</h1>
+            <label for="guess">Enter a guess: </label>
+            <input type="number" name="guess" id="guess" min="1" max="100">
+            <input type="submit" value="submit guess" id="submit">
+            <div class="resultParas">
+                <p id="prevGuesses"></p>
+                <p id="status"></p>
+                <p id="msg"></p>
+            </div>
+        </div>
+    </center>
+
+    <script>
+        const submit = document.querySelector('#submit');
+        const guess = document.querySelector('#guess');
+        const prevGuesses = document.querySelector('#prevGuesses');
+        const status = document.querySelector('#status');
+        const msg = document.querySelector('#msg');
+
+        let r = Math.floor(Math.random() * 100) + 1,
+            turn = 1, resetButton;
+
+        submit.addEventListener("click", function () {
+
+            let guessVal = parseInt(guess.value);
+            if (!isNaN(guessVal) && guessVal <= 100 && guessVal >= 1) {
+
+                if (turn == 1) {
+                    prevGuesses.textContent = `Previous guesses: `;
+                }
+
+                if (guessVal == r) {
+                    if (turn == 1) prevGuesses.textContent = '';
+                    status.textContent = `You guessed it right!! 😘`;
+                    status.style.backgroundColor = 'green';
+                    msg.textContent = '';
+                    gameOver();
+                }
+                else if (turn == 10) {
+                    status.textContent = `You lost 😐`;
+                    status.style.backgroundColor = 'red';
+                    gameOver();
+                }
+                else {
+                    prevGuesses.textContent += guessVal + ' ';
+                    status.textContent = `Wrong!`;
+                    status.style.backgroundColor = 'red';
+                    if (guessVal < r)
+                        msg.textContent = `Last guess was too low!`;
+                    else
+                        msg.textContent = `Last guess was too high!`;
+                    guess.value = null;
+                    turn += 1;
+                    guess.focus();
+                }
+            }
+        });
+
+        function gameOver() {
+            guess.disabled = true;
+            submit.disabled = true;
+            resetButton = document.createElement('button');
+            resetButton.textContent = `Start new game`;
+            document.querySelector('.container').appendChild(resetButton);
+            resetButton.addEventListener('click', resetGame);
+        }
+
+        function resetGame() {
+            turn = 1;
+
+            const resetParas = document.querySelectorAll('.resultParas p');
+            for (let i = 0; i < resetParas.length; ++i)
+                resetParas[i].textContent= '';
+            status.style.backgroundColor = 'white';
+
+            resetButton.parentNode.removeChild(resetButton);
+
+            guess.disabled = false;
+            submit.disabled = false;
+            guess.value = '';
+            guess.focus();
+
+            r = Math.floor(Math.random() * 100) + 1;
+        }
+
+    </script>
+</body>
+
+</html>
