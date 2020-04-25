@@ -43,9 +43,6 @@ ul {
 }
 
 .game {
-  /* display: flex;
-  flex-direction: row; */
-
   margin: auto;
   width: fit-content;
 }

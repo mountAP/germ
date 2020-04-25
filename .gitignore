@@ -6,9 +6,9 @@
 **/.pnp
 **/.pnp.js
 # testing
-testing/react-first-app/coverage
+**/coverage
 # production
-testing/react-first-app/build
+**/build
 
 
 # ---------- Next ----------------------
