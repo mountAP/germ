@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stack</title>
+</head>
+
+<body style="width: 590px;">
+    <center>
+        <div><input type="number" class="input">
+            <br>
+            <button class="push">push</button>
+            <button class="pop">pop</button></div>
+
+        <div class="output">
+
+        </div>
+    </center>
+    <script>
+        const push = document.querySelector('.push');
+        const pop = document.querySelector('.pop');
+        let output = document.querySelector('.output');
+        let input = document.querySelector('.input');
+        let value = input.textContent;
+        let array = [43];
+
+        let output1 = document.createElement('p');
+        output1.textContent = array;
+        push.onclick = function () {
+            array.push(value);
+
+            output.appendChild(output1);
+        };
+        pop.onclick = function () {
+            array.pop();
+
+        };
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

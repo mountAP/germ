@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guess game</title>
+</head>
+
+<body style="width: 500px;">
+    <center>
+        <h1>number guess game</h1>
+        <h3>guess a number between 1-100 i will try to guess in 10 attempts or less . </h3>
+        <div>
+            <h2>Is your number<br></h2>
+            <h1 style="font-family: cursive; " class="guess">50</h1>
+
+
+        </div>
+        <div>
+            <button class="enter">yes</button><br><br>
+            <button class="less">my num is less</button>
+            <button class="more">my num is more</button>
+
+        </div>
+        <div class="output"></div>
+    </center>
+    <script>
+        const enter = document.querySelector('.enter');
+        const less = document.querySelector('.less');
+        const more = document.querySelector('.more');
+        let guess = document.querySelector('.guess');
+        let upperlimit = 100;
+        let lowerlimit = 1;
+        let output = document.querySelector('.output');
+        let num;
+        enter.onclick = function () {
+            let output1 = document.createElement('p');
+            output1.textContent = 'yeah I won again';
+            output.appendChild(output1);
+            less.disable=true;
+            more.disable=true;
+        };
+        less.onclick = function () {
+            num=Number(guess.textContent);
+            upperlimit =num + 1;
+lowerlimit--;
+            guess.textContent = Math.floor((lowerlimit + upperlimit) / 2);
+
+
+
+
+        }
+        more.onclick = function () {
+            num=Number(guess.textContent);
+            lowerlimit = num - 1;
+            upperlimit++;
+            guess.textContent = Math.floor((lowerlimit + upperlimit) / 2);
+
+
+
+        };
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>
