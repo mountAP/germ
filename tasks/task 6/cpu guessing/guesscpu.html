@@ -38,8 +38,11 @@
             let output1 = document.createElement('p');
             output1.textContent = 'yeah I won again';
             output.appendChild(output1);
-            less.disable=true;
-            more.disable=true;
+            less.disabled=true;
+            more.disabled=true;
+            let replay = document.createElement('button');
+            replay.textContent = 'replay';
+            
         };
         less.onclick = function () {
             num=Number(guess.textContent);
