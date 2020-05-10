@@ -34,37 +34,49 @@
         let lowerlimit = 1;
         let output = document.querySelector('.output');
         let num;
-        enter.onclick = function () {
-            let output1 = document.createElement('p');
-            output1.textContent = 'yeah I won again';
-            output.appendChild(output1);
-            less.disabled=true;
-            more.disabled=true;
-            let replay = document.createElement('button');
-            replay.textContent = 'replay';
-            
-        };
-        less.onclick = function () {
-            num=Number(guess.textContent);
-            upperlimit =num + 1;
-lowerlimit--;
-            guess.textContent = Math.floor((lowerlimit + upperlimit) / 2);
+        let counn=0;
 
+
+        less.onclick = function () {
+            num = Number(guess.textContent);
+            upperlimit = num + 1;
+            lowerlimit--;
+            guess.textContent = Math.floor((lowerlimit + upperlimit) / 2);
+counn++;
 
 
 
         }
         more.onclick = function () {
-            num=Number(guess.textContent);
+            num = Number(guess.textContent);
             lowerlimit = num - 1;
             upperlimit++;
             guess.textContent = Math.floor((lowerlimit + upperlimit) / 2);
+counn++;
 
 
+        }
+         enter.onclick = function () {
+            let output1 = document.createElement('p');
+            output1.textContent = 'yeah I won again';
+            output.appendChild(output1);
+            less.disabled = true;
+            more.disabled = true;
+            let replay = document.createElement('button');
+            replay.textContent = 'replay';
+            output.appendChild(replay);
+            replay.addEventListener('click',restart);
 
-        };
+        }
+
+    function restart(){
+        less.disabled = false;
+            more.disabled = false;
+            output.textContent='';
+            guess.textContent=50;
 
 
+    }
 
 
 
