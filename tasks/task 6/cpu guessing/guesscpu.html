@@ -2,91 +2,120 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>guess game</title>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess Game</title>
+  <meta name="author" content="Vikas Sinha, Abhigyan Prakash">
 
-<body style="width: 500px;">
-    <center>
-        <h1>number guess game</h1>
-        <h3>guess a number between 1-100 i will try to guess in 10 attempts or less . </h3>
-        <div>
-            <h2>Is your number<br></h2>
-            <h1 style="font-family: cursive; " class="guess">50</h1>
-
-
-        </div>
-        <div>
-            <button class="enter">yes</button><br><br>
-            <button class="less">my num is less</button>
-            <button class="more">my num is more</button>
-
-        </div>
-        <div class="output"></div>
-    </center>
-    <script>
-        const enter = document.querySelector('.enter');
-        const less = document.querySelector('.less');
-        const more = document.querySelector('.more');
-        let guess = document.querySelector('.guess');
-        let upperlimit = 100;
-        let lowerlimit = 1;
-        let output = document.querySelector('.output');
-        let num;
-        let counn=0;
-
-
-        less.onclick = function () {
-            num = Number(guess.textContent);
-            upperlimit = num + 1;
-            lowerlimit--;
-            guess.textContent = Math.floor((lowerlimit + upperlimit) / 2);
-counn++;
-
-
-
-        }
-        more.onclick = function () {
-            num = Number(guess.textContent);
-            lowerlimit = num - 1;
-            upperlimit++;
-            guess.textContent = Math.floor((lowerlimit + upperlimit) / 2);
-counn++;
-
-
-        }
-         enter.onclick = function () {
-            let output1 = document.createElement('p');
-            output1.textContent = 'yeah I won again';
-            output.appendChild(output1);
-            less.disabled = true;
-            more.disabled = true;
-            let replay = document.createElement('button');
-            replay.textContent = 'replay';
-            output.appendChild(replay);
-            replay.addEventListener('click',restart);
-
-        }
-
-    function restart(){
-        less.disabled = false;
-            more.disabled = false;
-            output.textContent='';
-            guess.textContent=50;
-
-
+  <style>
+    body {
+      background-color: palegoldenrod;
     }
 
+    .container {
+      width: fit-content;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
 
+    button {
+      height: 30px;
+      border-radius: 5px;
+      background-color: white;
+    }
 
+    .restart {
+      display: none;
+    }
+  </style>
 
-    </script>
+</head>
 
+<body>
+  <div class="container">
+    <h1>Number guess game</h1>
+    <h3>Think of a number between 1-100 <br>and I will guess it in 6 attempts or less.</h3>
 
+    <div>
+      <h2>Is your number<br></h2>
+      <h1 class="guess"></h1>
+    </div>
 
+    <div>
+      <button class="playerResponse">yes</button><br><br>
+      <button class="less">my num is less</button>
+      <button class="more">my num is more</button>
+    </div>
 
+    <div class="output"></div>
+    <br>
+    <button class="restart">Restart</button>
+  </div>
 
+  <script>
+
+    const guess = document.querySelector('.guess');
+    const playerResponse = document.querySelector('.playerResponse');
+    const less = document.querySelector('.less');
+    const more = document.querySelector('.more');
+    const output = document.querySelector('.output');
+    const restart = document.querySelector('.restart');
+
+    let currentGuess, lowerlimit, upperlimit;
+    startGame();
+
+    function startGame() {
+      lowerlimit = 1;
+      upperlimit = 100;
+      makeNewGuess();
+    }
+
+    function makeNewGuess() {
+      if (lowerlimit > upperlimit)
+        endgame(false);
+      else
+        guess.textContent = currentGuess = Math.floor((lowerlimit + upperlimit) / 2);
+    }
+
+    less.onclick = function () {
+      upperlimit = currentGuess - 1;
+      makeNewGuess();
+    }
+
+    more.onclick = function () {
+      lowerlimit = currentGuess + 1;
+      makeNewGuess();
+    }
+
+    playerResponse.onclick = function () {
+      endgame(true)
+    };
+
+    function endgame(playerIsHonest) {
+      if (playerIsHonest)
+        output.innerHTML = '<br>Yeah I won!';
+      else
+        output.innerHTML = '<br>Are you a fickler??';
+      playerResponse.disabled = true;
+      less.disabled = true;
+      more.disabled = true;
+      restart.style.display = 'block'; // show it
+    }
+
+    restart.onclick = function () {
+      output.textContent = '';
+      playerResponse.disabled = false;
+      less.disabled = false;
+      more.disabled = false;
+      restart.style.display = 'none'; // hide it
+      startGame();
+    }
+
+  </script>
 
 </body>
 
