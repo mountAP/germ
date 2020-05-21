@@ -37,26 +37,38 @@
     const add = document.querySelector('button');
     let items;
     item.focus();
-    add.onclick = function () {
+    window.onkeypress=function(e){
+      if(e.key==='Enter'){addItem();}
+
+    }
+    add.onclick =addItem;
+      function addItem () {
       items = item.value;
       item.value = '';
       let listItem = document.createElement('li');
       let span = document.createElement('span');
-      let deleteBtn = document.createElement('button'); 
+      let deleteBtn = document.createElement('button');
       span.textContent = items;
       deleteBtn.textContent = 'delete';
       listItem.appendChild(span);
       listItem.appendChild(deleteBtn);
       list.appendChild(listItem);
-      deleteBtn.onclick=function(){
-        listItem.remove();
-      }
+      // deleteBtn.onclick = function () {
+      //listItem.remove();  }
+      list.onclick = function (evt) {
+        if (evt.target.nodeName === 'BUTTON') { evt.target.parentNode.remove(); item.focus(); }
+
+
+
+      };
       item.focus();
+    };
+    
 
 
 
 
-    }
+
 
 
   </script>
